@@ -13,16 +13,17 @@ public class GoogleConfig {
 
     /**
      * This is just an example of routing requests to Google from localhost. For demonstration only
+     *
      * @param builder
      * @return
      */
     @Bean
-    public RouteLocator googleRouteConfig(RouteLocatorBuilder builder){
+    public RouteLocator googleRouteConfig(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path("/googlesearch2")
                         .filters(f -> f.rewritePath("/googlesearch2(?<segment>/?.*)", "/${segment}"))
-                .uri("https://google.com")
-                .id("google"))
+                        .uri("https://google.com")
+                        .id("google"))
                 .build();
     }
 }
